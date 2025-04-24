@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <title>Javascript and the web</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Javascript and the web</h1>
+      <div id="helloContainer" class="alert alert-primary"></div>
+      <div id="sumContainer" class="alert alert-primary"></div>
+    </div>
+
+    <script type="module">
+      /**
+       * "Hello allemaal" bericht tonen
+       */
+      const helloContainer = document.getElementById("helloContainer");
+
+      const helloMessage = `Hello allemaal!`;
+      console.log(helloMessage);
+      helloEl.innerText = helloMessage;
+
+      /**
+       * Som berekenen
+       */
+      const sumContainer = document.getElementById("sumContainer");
+
+      const number1 = 50;
+      const number2 = 60;
+      const numberSum = number1 + number2;
+      sumEl.innerText = `som = ${numberSum}`;
+    </script>
+  </body>
+</html>

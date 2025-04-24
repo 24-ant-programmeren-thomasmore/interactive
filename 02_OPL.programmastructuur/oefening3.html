@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <title>Oefening 3</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hoofdstuk 2: Oefening 3</h1>
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">De Tafel van...</span>
+          </div>
+          <input
+            type="number"
+            id="baseNumberInput"
+            class="form-control"
+            placeholder="tafel van..."
+          />
+          <input
+            type="number"
+            id="amountOfLinesInput"
+            class="form-control"
+            placeholder="hoeveel berekeningen"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <button id="calculateButton" class="btn btn-outline-primary" type="button">show</button>
+          </div>
+        </div>
+      </form>
+      <div id="resultContainer" class="alert alert-primary"></div>
+    </div>
+    
+    <script type="module">
+      /**
+       * Global variables
+       */
+      const calculateButton = document.getElementById("calculateButton");
+      const resultContainer = document.getElementById("resultContainer");
+      const baseNumberInput = document.getElementById("baseNumberInput");
+      const amountOfLinesInput = document.getElementById("amountOfLinesInput");
+
+      /**
+       * Event listeners
+       */
+      calculateButton.addEventListener("click", () => {
+        let result = "";
+
+        const amountOfLines = amountOfLinesInput.valueAsNumber;
+        const baseNumber = baseNumberInput.valueAsNumber;
+
+        for (let i = 1; i <= amountOfLines; i++) {
+          result += `<div>${i} * ${baseNumber} = ${i * baseNumber}</div>`;
+        }
+
+        resultContainer.innerHTML = result;
+      });
+    </script>
+  </body>
+</html>

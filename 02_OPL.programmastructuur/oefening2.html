@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <title>Oefening 2</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hoofdstuk 2: Oefening 2</h1>
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Boete</span>
+          </div>
+          <input
+            type="number"
+            id="allowedSpeedInput"
+            class="form-control"
+            placeholder="toegelaten snelheid"
+          />
+          <input
+            type="number"
+            id="measureSpeedInput"
+            class="form-control"
+            placeholder="gereden snelheid"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <button id="calculateButton" class="btn btn-outline-primary" type="button">
+              calculate
+            </button>
+          </div>
+        </div>
+      </form>
+      <div id="resultContainer" class="alert alert-primary"></div>
+    </div>
+
+    <script type="module">
+      /**
+       * Global variables
+       */
+      const calculateButton = document.getElementById("calculateButton");
+      const resultContainer = document.getElementById("resultContainer");
+      const allowedSpeedInput = document.getElementById("allowedSpeedInput");
+      const measureSpeedInput = document.getElementById("measureSpeedInput");
+
+      /**
+       * Functions
+       */
+      function getMessage(allowedSpeed, measuredSpeed) {
+        if (allowedSpeed == null || measuredSpeed == null) return "geef 2 keer een getal op";
+
+        const tooFast = measuredSpeed - allowedSpeed;
+        //3 speciale gevallen:
+        if (tooFast <= 0) return "voorbeeldige chauffeur";
+        if (allowedSpeed <= 50 && tooFast > 30) return "politierechtbank";
+        if (allowedSpeed > 50 && tooFast > 40) return "politierechtbank";
+
+        let penalty = 50;
+        if (11 <= tooFast) {
+          const extraPenaltyPerKmTooFast = allowedSpeed <= 50 ? 10 : 5;
+          penalty += (tooFast - 10) * extraPenaltyPerKmTooFast;
+        }
+        return `boete bedraagt ${penalty} euro.`;
+      }
+
+      /**
+       * Event listeners
+       */
+      calculateButton.addEventListener("click", () => {
+        const allowedSpeed = allowedSpeedInput.valueAsNumber;
+        const measuredSpeed = measureSpeedInput.valueAsNumber;
+
+        const message = getMessage(allowedSpeed, measuredSpeed);
+        resultContainer.innerText = message;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <title>Oefening 1</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hoofdstuk 2: Oefening 1</h1>
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Getallen</span>
+          </div>
+          <input type="number" id="number1Input" class="form-control" placeholder="number 1" />
+          <input type="number" id="number2Input" class="form-control" placeholder="number 2" />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <button id="orderButton" class="btn btn-outline-primary" type="button">order</button>
+          </div>
+        </div>
+      </form>
+      <div id="resultContainer" class="alert alert-primary"></div>
+    </div>
+    <script>
+      /**
+       * Global variables
+       */
+      const orderButton = document.getElementById("orderButton");
+      //number1El en number2El zijn html-Elements van type input
+      const number1Input = document.getElementById("number1Input");
+      const number2Input = document.getElementById("number2Input");
+
+      /**
+       * Functions
+       */
+      //getMessage returnt een string die getoond kan worden aan de user
+      function getMessage(number1, number2) {
+        console.log("number1:", number1, "number2:", number2);
+        //precondities check: zijn 2 getallen ingegeven?
+        if (isNaN(number1) || isNaN(number2)) return "Vul beide getallen in";
+
+        //merk op" als de if een return doet is het niet nodig een else te schrijven
+        if (number1 === number2) return `${number1} = ${number2}`;
+        if (number1 < number2) return `${number1} < ${number2}`;
+        return `${number1} > ${number2}`;
+      }
+
+      /**
+       * Event listeners
+       */
+      orderButton.addEventListener("click", () => {
+        // De value property van een input element geeft de waarde als een string terug
+        console.log("Input value:", typeof number1Input.value);
+        // De valueAsNumber property van een input element geeft de waarde als een number terug als het mogelijk is
+        console.log("Input value as number:", typeof number1Input.valueAsNumber);
+
+        const message = getMessage(number1Input.valueAsNumber, number2Input.valueAsNumber);
+        document.getElementById("resultContainer").innerText = message;
+      });
+    </script>
+  </body>
+</html>

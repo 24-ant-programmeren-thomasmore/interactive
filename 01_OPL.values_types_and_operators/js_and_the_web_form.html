@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <title>Javascript and the web: een form</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Javascript and the web: een form</h1>
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Person</span>
+          </div>
+          <!-- attribute placeholder is de text die je ziet als de user nog niets ingetikt heeft -->
+          <input type="text" id="firstNameInput" class="form-control" placeholder="First Name" />
+          <input type="text" id="lastNameInput" class="form-control" placeholder="Last Name" />
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <button id="submitButton" class="btn btn-outline-primary" type="button">
+              Say Hello
+            </button>
+          </div>
+        </div>
+      </form>
+      <div id="helloContainer" class="alert alert-primary"></div>
+    </div>
+
+    <script type="module">
+      /**
+       * Elementen ophalen
+       */
+      const firstNameInput = document.getElementById("firstNameInput");
+      const lastNameInput = document.getElementById("lastNameInput");
+      const sayHelloButton = document.getElementById("submitButton");
+      const helloContainer = document.getElementById("helloContainer");
+
+      /**
+       * Event listeners voor wanneer de gebruiker op de knop klikt
+       */
+      sayHelloButton.addEventListener("click", () => {
+        const helloMessage = `Hello ${firstNameInput.value} ${lastNameInput.value}!`;
+        console.log(helloMessage);
+        helloContainer.innerText = helloMessage;
+      });
+    </script>
+  </body>
+</html>
