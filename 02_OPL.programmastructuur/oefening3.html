@@ -39,7 +39,7 @@
       </form>
       <div id="resultContainer" class="alert alert-primary"></div>
     </div>
-    
+
     <script type="module">
       /**
        * Global variables
@@ -53,10 +53,15 @@
        * Event listeners
        */
       calculateButton.addEventListener("click", () => {
-        let result = "";
-
         const amountOfLines = amountOfLinesInput.valueAsNumber;
         const baseNumber = baseNumberInput.valueAsNumber;
+
+        if (isNaN(amountOfLines) || isNaN(baseNumber)) {
+          resultContainer.innerHTML = "geef 2 keer een getal op";
+          return;
+        }
+
+        let result = "";
 
         for (let i = 1; i <= amountOfLines; i++) {
           result += `<div>${i} * ${baseNumber} = ${i * baseNumber}</div>`;

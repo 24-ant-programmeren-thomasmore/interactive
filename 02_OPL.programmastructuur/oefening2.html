@@ -55,7 +55,7 @@
        * Functions
        */
       function getMessage(allowedSpeed, measuredSpeed) {
-        if (allowedSpeed == null || measuredSpeed == null) return "geef 2 keer een getal op";
+        if (isNaN(allowedSpeed) || isNaN(measuredSpeed)) return "geef 2 keer een getal op";
 
         const tooFast = measuredSpeed - allowedSpeed;
         //3 speciale gevallen:
