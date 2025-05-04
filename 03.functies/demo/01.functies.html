@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Basisfuncties</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Basisfuncties</h2>
+
+    <div class="container border rounded p-2 mt-3">
+        <h4>voorbeeld functie calculate</h4>
+        <div class="input-group mb-3">
+            <input type="number" id="aNumberInput" class="form-control" placeholder="a"/>
+            <input type="number" id="bNumberInput" class="form-control" placeholder="b"/>
+            <input type="number" id="cNumberInput" class="form-control" placeholder="c"/>
+            <button id="calculateButton" class="btn btn-outline-primary" type="button">functie calculate</button>
+        </div>
+        <div id="resultCalculateContainer" class="alert alert-primary"></div>
+    </div>
+    <div class="container border rounded p-2 mt-3">
+        <h4>voorbeeld functie power</h4>
+        <div class="input-group mb-3">
+            <input type="number" id="xNumberInput" class="form-control" placeholder="x"/>
+            <button id="powerButton" class="btn btn-outline-primary" type="button">functie power</button>
+        </div>
+        <div id="resultPowerContainer" class="alert alert-primary"></div>
+    </div>
+
+</div>
+
+
+<script type="module">
+    import {calculate, power} from "./js/01.functies.js";
+
+    //voorbeeld functie calculate
+    const calculateButton = document.getElementById("calculateButton");
+    const resultCalculateContainer = document.getElementById("resultCalculateContainer");
+    const aNumberInput = document.getElementById("aNumberInput");
+    const bNumberInput = document.getElementById("bNumberInput");
+    const cNumberInput = document.getElementById("cNumberInput");
+
+    calculateButton.addEventListener("click", () => {
+        //waarom aNumberInput.valueAsNumber || 0 ? Om te voorkomen dat NaN meegegeven wordt als parameter aan calculate
+        const result = calculate(aNumberInput.valueAsNumber || 0, bNumberInput.valueAsNumber || 0, cNumberInput.valueAsNumber || 0);
+        resultCalculateContainer.innerHTML = result;
+    })
+
+
+    //voorbeeld functie power
+    const powerButton = document.getElementById("powerButton");
+    const resultPowerContainer = document.getElementById("resultPowerContainer");
+    const xNumberInput = document.getElementById("xNumberInput");
+
+    powerButton.addEventListener("click", () => {
+        const result = power(xNumberInput.valueAsNumber || 0);
+        resultPowerContainer.innerHTML = result;
+    })
+
+
+</script>
+</body>
+</html>
