@@ -1,0 +1,15 @@
+{
+  "name": "interactive_2024q4",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/verapeeters-thomasmore/interactive_2024q4"
+  },
+  "private": true
+}
