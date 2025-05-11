@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <h1>Hoofdstuk 4: Oefening uitgenodigd</h1>
+    <form>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Geef naam</span>
+            </div>
+            <input type="text" id="nameInput" class="form-control" placeholder="naam">
+            <button id="checkVisitorPresentButton" class="btn btn-outline-primary" type="button">check</button>
+            <button id="addVisitorButton" class="btn btn-outline-primary" type="button">nodig uit</button>
+        </div>
+        <div class="input-group mb-3">
+            <button id="showVisitorsButton" class="btn btn-outline-primary" type="button">toon genodigden</button>
+            <div class="input-group-prepend">
+                <span id="filter" class="input-group-text bg-white border-0"/>
+            </div>
+        </div>
+</div>
+</form>
+<div id="message" class="alert alert-primary">CHECK MESSAGE</div>
+<div id="visitorList" class="alert"></div>
+</div>
+<script type="module" src="js/oef_04_uitgenodigd.js"/>
+
+</body>
+</html>
+
