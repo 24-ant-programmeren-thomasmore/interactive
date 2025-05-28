@@ -13,7 +13,9 @@ const book2 = {
   price: 60,
 };
 
-console.log(book1);
+const books = [book1, book2];
+
+console.log(books);
 
 /**
  * Oefening 1.2
@@ -28,7 +30,7 @@ printBook(book2);
 /**
  * Oefening 1.3
  */
-[book1, book2].forEach((book) => printBook(book));
+books.forEach((book) => printBook(book));
 
 /**
  * Oefening 1.4
